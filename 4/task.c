@@ -2,7 +2,6 @@
 
 int length;
 int i;
-int sum;
 
 int main() {
   printf("Input length: ");
