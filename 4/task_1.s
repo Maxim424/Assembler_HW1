@@ -33,12 +33,12 @@ main:               # Точка входа в программу
         # Приглашение для ввода значения длины
         mov     rax, rsp
         mov     rbx, rax
-        mov     edi, OFFSET FLAT:.LC0
+        lea     rdi, .LC0[rip]
         mov     eax, 0
         call    printf      # Вызов функции вывода текста сообщения
         # Ввод значения длины
-        mov     esi, OFFSET FLAT:length
-        mov     edi, OFFSET FLAT:.LC1
+        lea     rsi, length[rip]
+        lea     rdi, .LC1[rip]
         mov     eax, 0
         call    scanf       # Вызов функции ввода
         # Сравнение длины с 0 и максимальным значением
@@ -51,7 +51,7 @@ main:               # Точка входа в программу
 .L2:    # Вывод сообщения об ошибке
         mov     eax, DWORD PTR length[rip]
         mov     esi, eax
-        mov     edi, OFFSET FLAT:.LC2
+        lea     rdi, .LC2[rip]
         mov     eax, 0
         call    printf
         mov     eax, 1
@@ -115,7 +115,7 @@ main:               # Точка входа в программу
         # Цикл ввода значений в массив a
         mov     eax, DWORD PTR i[rip]
         mov     esi, eax
-        mov     edi, OFFSET FLAT:.LC3
+        lea     rdi, .LC3[rip]
         mov     eax, 0
         call    printf      # Вывод подсказки
         mov     eax, DWORD PTR i[rip]
@@ -124,7 +124,7 @@ main:               # Точка входа в программу
         mov     rax, QWORD PTR [rbp-64]
         add     rax, rdx
         mov     rsi, rax
-        mov     edi, OFFSET FLAT:.LC1
+        lea     rdi, .LC1[rip]
         mov     eax, 0
         call    scanf       # Ввод значения
         mov     eax, DWORD PTR i[rip]
@@ -186,7 +186,7 @@ main:               # Точка входа в программу
         mov     edx, DWORD PTR [rax+rdx*4]
         mov     eax, DWORD PTR i[rip]
         mov     esi, eax
-        mov     edi, OFFSET FLAT:.LC4
+        lea     rdi, .LC4[rip]
         mov     eax, 0
         call    printf
         

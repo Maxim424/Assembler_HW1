@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// Функция для вывода массива
 void print_array(int b[], int length) {
     printf("\n");
     for(int i = 0; i < length; ++i) {
@@ -7,6 +8,7 @@ void print_array(int b[], int length) {
     }
 }
 
+// Функция для заполнения массива b
 void calculate(int a[], int b[], int length) {
     for(int i = 0; i < length; ++i) {
         if (a[i] < 0) {
@@ -19,6 +21,7 @@ void calculate(int a[], int b[], int length) {
     }
 }
 
+// Функция main, точка входа в программу
 int main() {
   int length;
 
